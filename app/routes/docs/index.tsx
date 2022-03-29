@@ -1,7 +1,18 @@
 import { json, Link, useLoaderData } from "remix";
 
+type Document = {
+  id: string;
+  title: string;
+  desc: string;
+  status: string;
+}
+
+type LoaderData = {
+  docs: Array<Document>;
+};
+
 export const loader = async () => {
-  return json({
+  return json<LoaderData>({
     docs: [
       { id: '1236', title: 'Lorem ipssyus', desc: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. ', status: 'Member' },
       { id: '3473', title: 'Document that Pedro likes', desc: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. ', status: 'Member' },
@@ -14,7 +25,7 @@ export const loader = async () => {
 };
 
 export default function Documents() {
-  const { docs } = useLoaderData();
+  const { docs } = useLoaderData() as LoaderData;
   console.log(docs);
 
   return (
@@ -22,7 +33,7 @@ export default function Documents() {
       <h1>ETUI Documents</h1>
 
       <ul>
-        {docs.map((document: any) => (
+        {docs.map((document) => (
           <li key={document.id}>
             <Link
               to={document.id}
