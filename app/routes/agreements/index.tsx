@@ -28,14 +28,14 @@ export const loader: LoaderFunction = async () => {
   });
 };
 
-export default function Documents() {
+export default function Agreements() {
   const { agreements } = useLoaderData() as LoaderData;
   // console.log(agreements);
 
   return (
     <Table
       title="Agreements"
-      description="A list of all the agreements avaialble including this, this, and that."
+      description="A list of all the agreements avaialble including title, date, and publication status."
       data={agreements}
     />
   );

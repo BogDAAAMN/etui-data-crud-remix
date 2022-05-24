@@ -1,28 +1,35 @@
 import { Fragment, useState, ReactChildren, ReactChild } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import {
-  CalendarIcon,
-  ChartBarIcon,
-  FolderIcon,
   HomeIcon,
-  InboxIcon,
   MenuAlt2Icon,
-  UsersIcon,
+  FolderDownloadIcon,
   XIcon,
+  DocumentTextIcon,
+  OfficeBuildingIcon,
 } from "@heroicons/react/outline";
 import { SearchIcon } from "@heroicons/react/solid";
+import { Link } from "remix";
 
 type PropsType = {
   children: ReactChild | ReactChild[] | ReactChildren | ReactChildren[];
 };
 
 const navigation = [
-  { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
-  { name: "Team", href: "#", icon: UsersIcon, current: false },
-  { name: "Projects", href: "#", icon: FolderIcon, current: false },
-  { name: "Calendar", href: "#", icon: CalendarIcon, current: false },
-  { name: "Documents", href: "#", icon: InboxIcon, current: false },
-  { name: "Reports", href: "#", icon: ChartBarIcon, current: false },
+  { name: "Dashboard", href: "#", icon: HomeIcon, current: false },
+  {
+    name: "Agreements",
+    href: "/agreements",
+    icon: DocumentTextIcon,
+    current: true,
+  },
+  {
+    name: "Documents",
+    href: "/documents",
+    icon: FolderDownloadIcon,
+    current: false,
+  },
+  { name: "Companies", href: "#", icon: OfficeBuildingIcon, current: false },
 ];
 
 function classNames(...classes: any) {
@@ -97,9 +104,9 @@ export default function SidebarLayout({ children }: PropsType) {
                   <div className="mt-5 flex-1 h-0 overflow-y-auto">
                     <nav className="px-2 space-y-1">
                       {navigation.map((item) => (
-                        <a
+                        <Link
                           key={item.name}
-                          href={item.href}
+                          to={item.href}
                           className={classNames(
                             item.current
                               ? "bg-gray-100 text-gray-900"
@@ -117,7 +124,7 @@ export default function SidebarLayout({ children }: PropsType) {
                             aria-hidden="true"
                           />
                           {item.name}
-                        </a>
+                        </Link>
                       ))}
                     </nav>
                   </div>
@@ -144,9 +151,9 @@ export default function SidebarLayout({ children }: PropsType) {
             <div className="mt-5 flex-grow flex flex-col">
               <nav className="flex-1 px-2 pb-4 space-y-1">
                 {navigation.map((item) => (
-                  <a
+                  <Link
                     key={item.name}
-                    href={item.href}
+                    to={item.href}
                     className={classNames(
                       item.current
                         ? "bg-gray-100 text-gray-900"
@@ -164,7 +171,7 @@ export default function SidebarLayout({ children }: PropsType) {
                       aria-hidden="true"
                     />
                     {item.name}
-                  </a>
+                  </Link>
                 ))}
               </nav>
             </div>

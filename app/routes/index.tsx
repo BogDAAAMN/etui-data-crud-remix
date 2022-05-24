@@ -6,11 +6,7 @@ export default function Index() {
       <h1 className="text-xl">Welcome to Remix</h1>
       <ul className="list-disc">
         <li className="text-blue-600 underline">
-          <Link
-            to="/docs"
-          >
-            ETUI Documents
-          </Link>
+          <Link to="/docs">ETUI Agreements</Link>
         </li>
         <li className="text-blue-600 underline">
           <a
