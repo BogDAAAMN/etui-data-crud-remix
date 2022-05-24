@@ -7,12 +7,11 @@ import {
   Scripts,
   ScrollRestoration,
 } from "remix";
+
 import type { MetaFunction } from "remix";
 import styles from "./tailwind.css";
 
-export const links: LinksFunction = () => [
-  { rel: "stylesheet", href: styles },
-];
+export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
@@ -27,7 +26,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="h-screen w-screen">
         <Outlet />
         <ScrollRestoration />
         <Scripts />
