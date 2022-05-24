@@ -97,7 +97,7 @@ export default function SidebarLayout({ children }: PropsType) {
                   <div className="flex-shrink-0 flex items-center px-4">
                     <img
                       className="h-8 w-auto"
-                      src="https://tailwindui.com/img/logos/workflow-logo-indigo-600-mark-gray-800-text.svg"
+                      src="https://www.ewcdb.eu/themes/ewcdb/images/svg/logo/logo_ewcdb.svg"
                       alt="Workflow"
                     />
                   </div>
@@ -143,8 +143,8 @@ export default function SidebarLayout({ children }: PropsType) {
           <div className="flex flex-col flex-grow border-r border-gray-200 pt-5 bg-white overflow-y-auto">
             <div className="flex items-center flex-shrink-0 px-4">
               <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/workflow-logo-indigo-600-mark-gray-800-text.svg"
+                className="w-auto invert h-14"
+                src="https://www.ewcdb.eu/themes/ewcdb/images/svg/logo/logo_ewcdb.svg"
                 alt="Workflow"
               />
             </div>
